@@ -2,15 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/slushies.png" type="image/x-icon"/>
+    <link rel="icon" href="/slushie.png" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slushies - Home</title>
+    <title>Slushies</title>
   </head>
   <body>
 
     <canvas id="BG"></canvas>
 
-    <img src="/public/flag-orpheus-top.svg" alt="Orphie Flag" class="flag">
+    <img src="/flag-orpheus-top.svg" alt="Orphie Flag" class="flag">
+
+    <div class="faqCon">
+      <button class="faq">?</button>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="modCon">
+      <div class="faqMod">
+
+          <div class="top">
+            <h1>Frequently Asked Questions</h1>
+            <button class="close">X</button>
+          </div>
+
+          <div class="questions">
+
+            <button class="q">
+              <div class="q-header">
+                Question 1
+                <span class='arrow'>▼</span>
+              </div>
+              <span class='hiddenDesc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident tenetur quasi libero harum sunt odio ut, pariatur ipsum eveniet maxime beatae? Aspernatur magni eaque distinctio excepturi eum dolorum natus nesciunt!</span>
+            </button>
+
+          </div>
+
+      </div>
+    </div>
 
     <div class="main">
 
@@ -54,7 +83,21 @@
         <h1 class="reqs how">Requirements</h1>
 
         <div class="reqBox">
-          
+          <ul class="list">
+            <li>Build a Flask web app with at least 3 routes</li>
+            <li>Your project should be unique, functional, and somewhat styled</li>
+            <li>While coding, commit your work at least once an hour on GitHub</li>
+            <li>Describe your project (and add screenshots) in a README.md file</li>
+            <li>List all your dependencies in a requirements.txt file</li>
+            <li>Log at least 1 hour on Hackatime</li>
+          </ul>
+          <h1 class="for">For higher rewards, log a minimum of 2 hours on Hackatime and implement at least one:</h1>
+          <ul class="list">
+            <li>Basic CRUD functionality using SQLite, CSV, Postgres, or something similar</li>
+            <li>A functional user authentication system and protected routes</li>
+            <li>Connect and successfully fetch data from an external API (weather, stocks, etc.)</li>
+          </ul>
+          <h1 class="for">And you'll earn $10 instead of $5!!!</h1>
         </div>
 
       </div>
@@ -62,7 +105,7 @@
     </div>
 
 
-
+    <script type="module" src="/src/three.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
