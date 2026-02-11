@@ -2,7 +2,6 @@ import './style.css'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshStandardMaterial } from 'three';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
 const scene = new THREE.Scene();
 
@@ -14,7 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 2;
+renderer.toneMappingExposure = 3;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 
@@ -23,20 +22,13 @@ renderer.setSize( window.innerWidth, window.innerHeight);
 
 camera.position.setZ(12.5);
 
-new RGBELoader()
-  .load('path/to/hdri.hdr', function (texture) {
-    texture.mapping = THREE.EquirectangularReflectionMapping;
-    scene.environment = texture;
-  });
-
-
 renderer.render( scene, camera ); 
 
 let slushie;
 
 const loader = new GLTFLoader();
 
-loader.load('../models/slushie.glb', (gltf) => {
+loader.load('/models/slushie.glb', (gltf) => {
     slushie = gltf.scene;
     slushie.position.set(10, 0, 0);
     slushie.scale.set(0.5, 0.5, 0.5);
@@ -67,6 +59,8 @@ window.addEventListener('resize', () => {
 });
 
 const initialX = 10;
+const modelConfig = { initialX: 10 };
+
 
 function moveCam() {
     if (slushie) {
