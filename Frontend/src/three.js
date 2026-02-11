@@ -49,8 +49,10 @@ loader.load('../models/slushie.glb', (gltf) => {
         }
     });
 
-
     scene.add(slushie);
+
+    scale();
+
 }, undefined, (error) => {
     console.error("error");
 });
@@ -60,16 +62,45 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    scale();
 });
 
-function moveCam() {
-    const t = document.body.getBoundingClientRect().top;
+const initialX = 10;
 
-    camera.position.z = 12.5 + t * -0.01;;
-    slushie.position.x = t * -0.035;
+function moveCam() {
+    if (slushie) {
+        const scrollY = window.scrollY;
+
+        camera.position.z = 12.5 - scrollY * 0.005;
+
+        slushie.position.x = initialX + scrollY * 0.01;
+    }
 }
 
-// document.body.onscroll = moveCam;
+
+document.body.onscroll = moveCam;
+
+function scale() {
+  if (!slushie) return;
+
+  const width = window.innerWidth;
+
+  if (width < 600) {
+    slushie.scale.set(0.3, 0.3, 0.3);
+    modelConfig.initialX = 5;
+  } else if (width < 1024) {
+    slushie.scale.set(0.4, 0.4, 0.4);
+    modelConfig.initialX = 7;
+  } else {
+    slushie.scale.set(0.5, 0.5, 0.5);
+    modelConfig.initialX = 10;
+  }
+
+  const scrollY = window.scrollY;
+  slushie.position.x = modelConfig.initialX + scrollY * 0.01;
+}
+
 
 function animate() {
     requestAnimationFrame( animate );

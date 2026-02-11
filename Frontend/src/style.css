@@ -367,6 +367,24 @@ html, body {
 }
 
 
+/* @media (max-width: 1285px) {
+  #BG {
+    display: none;
+  }
+  .sec1 {
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .text {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+} */
+
 @media (max-width: 675px) {
   .build, .get {
     font-size: 3rem;
@@ -381,10 +399,14 @@ html, body {
 
   .sec1 {
     align-items: center;
+    padding: 0;
+    margin: 0;
   }
 
   .text {
     text-align: center;
+    padding: 0;
+    margin: 0;
   }
 
   .faq {
