@@ -6,6 +6,7 @@ const overlay = document.querySelector('.overlay');
 const close = document.querySelector('.close');
 const faqBtn = document.querySelector('.faq')
 const get = document.querySelector('.getBtn');
+const ws = document.querySelector('.ws');
 
 
 flag.addEventListener('click', ()=> {
@@ -31,6 +32,10 @@ document.addEventListener('click', (e)=> {
     ) {
         modal();
     }
+})
+
+ws.addEventListener('click', ()=> {
+    alert("Currently Unavailable");
 })
 
 function toggleFAQ(e) {
