@@ -1,5 +1,5 @@
 FROM node:22-alpine AS build
-WORKDIR /Frontend
+WORKDIR /app
 
 COPY package*.json ./
 RUN npm ci
@@ -7,11 +7,13 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+
 FROM node:22-alpine
-WORKDIR /Frontend
+WORKDIR /app
 
 RUN npm install -g serve
-COPY --from=build /Frontend/dist ./dist
+
+COPY --from=build /app/dist ./dist
 
 EXPOSE 3000
 CMD ["serve", "-s", "dist", "-l", "3000"]
